@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/dist/output.css" />
+  </head>
+  <body class="bg-blue-100">
+    <header class="flex justify-center">
+      <p class="text-black m-5 text-2xl">Todo List</p>
+    </header>
+    <!-- search bar -->
+    <div class="flex justify-center">
+      <label class="relative block">
+        <span class="sr-only">Search</span>
+        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+          <svg
+            class="h-5 w-5 fill-none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+        </span>
+        <input
+          class="placeholder:italic placeholder:text-slate-400 block bg-white border rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-xs"
+          placeholder="Search todo..."
+          type="text"
+          name="search"
+        />
+      </label>
+    </div>
+    <!-- main -->
+    <div class="flex flex-col m-auto mt-5 gap-y-2 w-full sm:w-2/3 md:w-1/2 max-w-sm rounded-lg p-2 shadow-md bg-gray-100 text-left characters">
+        <!-- list -->
+        <div class="border bg-gray-200 rounded flex flex-row items-center p-1 justify-between select-none">
+            <!-- checkbox -->
+            <label class="flex items-center justify-start space-x-3 overflow-auto">
+                <input type="checkbox" name="" id="" class="ml-1 form-tick flex-initial bg-white bg-check h-6 w-24px min-w-6 border border-gray-300 rounded-md checked:bg-blue-500 checked:border-transparent focus:outline-none">
+            </label>
+            <!-- main list -->
+            <span class="font-light truncate max-h-16">mencari surga</span>
+            <label class="flex items-center justify-start space-x-3 overflow-auto">
+                <!-- delete button -->
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>                      
+                </button>
+            </label>
+        </div>
+        
+        <!-- add button -->
+        <button class="flex justify-center items-center focus:ring-gray-400 focus:ring-offset-gray-200 text-white transition ease-in duration-200 text-center text-base font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2  w-6 h-6 rounded-xl bg-slate-400 ml-1" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+            </svg>
+        </button>
+  </body>
+</html>
