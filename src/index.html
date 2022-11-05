@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
     <link rel="stylesheet" href="/dist/output.css" />
+    <script src="script.js" defer></script>
   </head>
   <body class="bg-blue-100">
     <header class="flex justify-center">
@@ -38,30 +39,127 @@
       </label>
     </div>
     <!-- main -->
-    <div class="flex flex-col m-auto mt-5 gap-y-2 w-full sm:w-2/3 md:w-1/2 max-w-sm rounded-lg p-2 shadow-md bg-gray-100 text-left characters">
-        <!-- list -->
-        <div class="border bg-gray-200 rounded flex flex-row items-center p-1 justify-between select-none">
-            <!-- checkbox -->
-            <label class="flex items-center justify-start space-x-3 overflow-auto">
-                <input type="checkbox" name="" id="" class="ml-1 form-tick flex-initial bg-white bg-check h-6 w-24px min-w-6 border border-gray-300 rounded-md checked:bg-blue-500 checked:border-transparent focus:outline-none">
-            </label>
-            <!-- main list -->
-            <span class="font-light truncate max-h-16">mencari surga</span>
-            <label class="flex items-center justify-start space-x-3 overflow-auto">
-                <!-- delete button -->
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>                      
-                </button>
-            </label>
-        </div>
-        
-        <!-- add button -->
-        <button class="flex justify-center items-center focus:ring-gray-400 focus:ring-offset-gray-200 text-white transition ease-in duration-200 text-center text-base font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2  w-6 h-6 rounded-xl bg-slate-400 ml-1" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-            </svg>
+    <div
+      class="flex flex-col m-auto mt-5 gap-y-2 w-full sm:w-2/3 md:w-1/2 max-w-sm rounded-lg p-2 shadow-md bg-gray-100 text-left characters"
+      data-container
+    >
+      <!-- list -->
+      <div
+        class="border bg-gray-200 rounded flex flex-row items-center p-1 justify-between select-none"
+        data-list
+      >
+        <!-- checkbox -->
+        <input
+          type="checkbox"
+          class="ml-1 form-tick flex-initial bg-white bg-check h-6 w-24px min-w-6 border border-gray-300 rounded-md checked:bg-blue-500 checked:border-transparent focus:outline-none"
+          data-checked
+        />
+        <!-- main list -->
+        <span class="font-light truncate max-h-16" data-todo
+          >mencari surga</span
+        >
+        <!-- delete button -->
+        <button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+            data-svg
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+              data-path
+            />
+          </svg>
         </button>
+      </div>
+      <div
+        class="border bg-gray-200 rounded flex flex-row items-center p-1 justify-between select-none"
+        data-list
+      >
+        <!-- checkbox -->
+        <input
+          type="checkbox"
+          name=""
+          id=""
+          class="ml-1 form-tick flex-initial bg-white bg-check h-6 w-24px min-w-6 border border-gray-300 rounded-md checked:bg-blue-500 checked:border-transparent focus:outline-none"
+          data-checked
+        />
+        <!-- main list -->
+        <span class="font-light truncate max-h-16" data-todo
+          >mencari segalanya</span
+        >
+        <!-- delete button -->
+        <button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- show form -->
+      <button
+        class="flex justify-center items-center focus:ring-gray-400 focus:ring-offset-gray-200 text-white transition ease-in duration-200 text-center text-base font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 w-6 h-6 rounded-xl bg-slate-400 ml-1"
+        type="button"
+        onclick="showForm()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6v12m6-6H6"
+          />
+        </svg>
+      </button>
+      <!-- form add -->
+      <form
+        action=""
+        class="flex flex-row w-full justify-center gap-x-1 hidden"
+        data-form
+      >
+        <input
+          type="text"
+          placeholder="menanak nasi"
+          class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-1 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+          data-input-todo
+        />
+        <button
+          class="px-2 py-1 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200"
+          type="submit"
+        >
+          Add
+        </button>
+        <button
+          class="px-2 py-1 text-base font-semibold text-white bg-red-600 rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-red-200"
+          type="button"
+          onclick="closeForm()"
+        >
+          Close
+        </button>
+      </form>
+    </div>
   </body>
 </html>
